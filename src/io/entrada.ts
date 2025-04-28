@@ -1,20 +1,19 @@
-import promptSync from 'prompt-sync';
-
+const promptSync = require("prompt-sync");
 export default class Entrada {
-    private prompt: promptSync.Prompt;
+    private prompt: any;
 
     constructor() {
         this.prompt = promptSync();
     }
 
     public receberNumero(mensagem: string): number {
-        let valor = this.prompt(mensagem);
-        let numero = new Number(valor);
-        return numero.valueOf();
+        const valor = this.prompt(mensagem);
+        const numero = Number(valor);
+        return numero;
     }
 
     public receberTexto(mensagem: string): string {
-        let texto = this.prompt(mensagem);
+        const texto = this.prompt(mensagem);
         return texto;
     }
 }

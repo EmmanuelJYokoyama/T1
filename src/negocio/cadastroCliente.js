@@ -35,7 +35,10 @@ var CadastroCliente = /** @class */ (function (_super) {
         var nomeSocial = this.entrada.receberTexto("Por favor informe o nome social do cliente: ");
         var valor = this.entrada.receberTexto("Por favor informe o n\u00FAmero do cpf: ");
         var data = this.entrada.receberTexto("Por favor informe a data de emiss\u00E3o do cpf, no padr\u00E3o dd/mm/yyyy: ");
-        var genero = this.entrada.receberTexto("Por favor informe o g\u00EAnero do cliente: ");
+        var genero = this.entrada.receberTexto("Por favor informe o g\u00EAnero do cliente (M-F): ");
+        do {
+            genero = this.entrada.receberTexto("Por favor informe o g\u00EAnero do cliente corretamente! (M-F): ");
+        } while (genero.toUpperCase() !== 'M' && genero.toUpperCase() !== 'F');
         var splitData = data.split('/');
         var ano = new Number(splitData[2].valueOf()).valueOf();
         var mes = new Number(splitData[1].valueOf()).valueOf();

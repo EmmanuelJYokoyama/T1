@@ -7,7 +7,7 @@ var listagemClientes_1 = require("../negocio/listagemClientes");
 var listagemProdutosServicos_1 = require("../negocio/listagemProdutosServicos");
 var cadastroProduto_1 = require("../negocio/cadastroProduto");
 var cadastroServico_1 = require("../negocio/cadastroServico");
-console.log("Bem-vindo ao cadastro de clientes do Grupo World Beauty");
+console.log("Bem-vindo ao cadastro de clientes World Beauty");
 var empresa = new empresa_1.default();
 var execucao = true;
 while (execucao) {

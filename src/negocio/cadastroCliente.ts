@@ -24,7 +24,13 @@ export default class CadastroCliente extends Cadastro {
         let nomeSocial = this.entrada.receberTexto(`Por favor informe o nome social do cliente: `)
         let valor = this.entrada.receberTexto(`Por favor informe o número do cpf: `);
         let data = this.entrada.receberTexto(`Por favor informe a data de emissão do cpf, no padrão dd/mm/yyyy: `);
-		let genero = this.entrada.receberTexto(`Por favor informe o gênero do cliente: `)
+		let genero = this.entrada.receberTexto(`Por favor informe o gênero do cliente (M-F): `)
+
+        do{
+            genero = this.entrada.receberTexto(`Por favor informe o gênero do cliente corretamente! (M-F): `);
+
+        }while(genero.toUpperCase() !== 'M' && genero.toUpperCase() !== 'F');
+
         let splitData = data.split('/')
         let ano = new Number(splitData[2].valueOf()).valueOf()
         let mes = new Number(splitData[1].valueOf()).valueOf()
