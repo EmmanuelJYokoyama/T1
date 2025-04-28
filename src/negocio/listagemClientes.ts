@@ -19,7 +19,7 @@ export default class ListagemClientes extends Listagem {
         console.log(`\n`);
     }
 
-	public listarMaisConsumiram(): void {
+	public maiorConsumo(): void {
 		console.log(`\nLista dos 10 clientes que mais consumiram:`);
 
 		this.clientes.sort((a, b) => {
@@ -39,7 +39,7 @@ export default class ListagemClientes extends Listagem {
         console.log(`\n`);
 	}
 
-	public listarMenosConsumiram(): void {
+	public menorConsumo(): void {
 		console.log(`\nLista dos 10 clientes que menos consumiram:`);
 
 		this.clientes.sort((a, b) => {
@@ -59,27 +59,27 @@ export default class ListagemClientes extends Listagem {
         console.log(`\n`);
 	}
 
-	public listarMaisConsumiramEmValor(): void {
+	public maiorConsumoEmValor(): void {
         console.log(`\nLista dos 5 clientes que mais consumiram em valor:`);
 
         this.clientes.sort((a, b) => {
-            const clvA = this.calcularCLV(a);
-            const clvB = this.calcularCLV(b);
-            return clvB - clvA;
+            const valTotA = this.calcularValorTot(a);
+            const valTotB = this.calcularValorTot(b);
+            return valTotB - valTotA;
         });
 
         const top5Clientes = this.clientes.slice(0, 5);
 
         top5Clientes.forEach((cliente, index) => {
             console.log(`${index + 1}. Nome: ${cliente.nome}`);
-            console.log(`   CLV: R$${this.calcularCLV(cliente)}`);
+            console.log(`   Valor Total: R$${this.calcularValorTot(cliente)}`);
             console.log(`--------------------------------------`);
         });
 
         console.log(`\n`);
     }
 
-	private calcularCLV(cliente: Cliente): number {
+	private calcularValorTot(cliente: Cliente): number {
         let clv = 0;
 		cliente.getProdutosConsumidos.forEach((servico) => {
             clv += servico.getValor;
@@ -90,10 +90,10 @@ export default class ListagemClientes extends Listagem {
         return clv;
     }
 
-	public listarPorGenero(): void {
+	public clientesByGenero(): void {
 		console.log(`\nLista de todos os clientes por gênero:`);
 
-        const clientesPorGenero = this.agruparPorGenero();
+        const clientesPorGenero = this.agrupaGenero();
 
         clientesPorGenero.forEach((clientes, genero) => {
             console.log(`Gênero: ${genero}`);
@@ -108,7 +108,7 @@ export default class ListagemClientes extends Listagem {
         console.log(`\n`);
 	}
 
-	private agruparPorGenero(): Map<string, Array<Cliente>> {
+	private agrupaGenero(): Map<string, Array<Cliente>> {
         const clientesPorGenero = new Map<string, Array<Cliente>>();
 
         this.clientes.forEach((cliente) => {
@@ -122,7 +122,7 @@ export default class ListagemClientes extends Listagem {
         return clientesPorGenero;
     }
 
-	listarConsumoPorGenero(): void {
+	prodServByGenero(): void {
 		console.log(`\nProdutos e serviços mais consumidos por gênero:`);
 
         const consumoPorGenero = new Map<string, Map<string, number>>();

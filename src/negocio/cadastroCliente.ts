@@ -25,17 +25,17 @@ export default class CadastroCliente extends Cadastro {
         let valor = this.entrada.receberTexto(`Por favor informe o número do cpf: `);
         let data = this.entrada.receberTexto(`Por favor informe a data de emissão do cpf, no padrão dd/mm/yyyy: `);
 		let genero = this.entrada.receberTexto(`Por favor informe o gênero do cliente: `)
-        let partesData = data.split('/')
-        let ano = new Number(partesData[2].valueOf()).valueOf()
-        let mes = new Number(partesData[1].valueOf()).valueOf()
-        let dia = new Number(partesData[0].valueOf()).valueOf()
+        let splitData = data.split('/')
+        let ano = new Number(splitData[2].valueOf()).valueOf()
+        let mes = new Number(splitData[1].valueOf()).valueOf()
+        let dia = new Number(splitData[0].valueOf()).valueOf()
         let dataEmissao = new Date(ano, mes, dia)
         let cpf = new CPF(valor, dataEmissao);
         let cliente = new Cliente(nome, nomeSocial, cpf, genero);
         this.clientes.push(cliente)
         console.log(`\nCadastro concluído :)\n`);
     }
-	public associarProdutoACliente(): void {
+	public ProdAssociadoCli(): void {
         let cpfCliente = this.entrada.receberTexto(`Informe o CPF do cliente: `);
         let cliente = this.clientes.find(cliente => cliente.getCpf.getValor === cpfCliente);
 
@@ -44,7 +44,7 @@ export default class CadastroCliente extends Cadastro {
             let produto = this.produtos.find(produto => produto.getNome === produtoNome);
 
             if (produto) {
-                cliente.adicionarProduto(produto);
+                cliente.addProduct(produto);
                 console.log(`Produto associado com sucesso!`);
             } else {
                 console.log(`Produto não encontrado!`);
@@ -54,7 +54,7 @@ export default class CadastroCliente extends Cadastro {
         }
     }
 
-    public associarServicoACliente(): void {
+    public ServAssociadoCli(): void {
         let cpfCliente = this.entrada.receberTexto(`Informe o CPF do cliente: `);
         let cliente = this.clientes.find(cliente => cliente.getCpf.getValor === cpfCliente);
 
@@ -63,7 +63,7 @@ export default class CadastroCliente extends Cadastro {
             let servico = this.servicos.find(servico => servico.getNome === servicoNome);
 
             if (servico) {
-                cliente.adicionarServico(servico);
+                cliente.addService(servico);
                 console.log(`Serviço associado com sucesso!`);
             } else {
                 console.log(`Serviço não encontrado!`);

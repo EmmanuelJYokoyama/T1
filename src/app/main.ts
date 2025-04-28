@@ -49,23 +49,23 @@ while (execucao) {
             break;
 		case 5:
 			let listagemTop10 = new ListagemClientes(empresa.getClientes);
-            listagemTop10.listarMaisConsumiram();
+            listagemTop10.maiorConsumo();
 			break;
 		case 6:
 			let listagemBottom10 = new ListagemClientes(empresa.getClientes);
-            listagemBottom10.listarMenosConsumiram();
+            listagemBottom10.menorConsumo();
 			break;
 		case 7:
 			let listagemTop5 = new ListagemClientes(empresa.getClientes);
-            listagemTop5.listarMaisConsumiramEmValor();
+            listagemTop5.maiorConsumoEmValor();
 			break;
 		case 8:
 			let listagemGenero = new ListagemClientes(empresa.getClientes);
-            listagemGenero.listarPorGenero();
+            listagemGenero.clientesByGenero();
 			break;
 		case 9:
 			let listagemConsumoGenero = new ListagemClientes(empresa.getClientes);
-            listagemConsumoGenero.listarConsumoPorGenero();
+            listagemConsumoGenero.prodServByGenero();
 			break;
 		case 10:
 			let listagemProdutosServicos = new ListagemProdutosServicos(empresa.getServicos, empresa.getProdutos);
@@ -77,11 +77,11 @@ while (execucao) {
 			break;
 		case 12:
 			let associarProduto = new CadastroCliente(empresa.getClientes, empresa.getProdutos, empresa.getServicos);
-			associarProduto.associarProdutoACliente();
+			associarProduto.ProdAssociadoCli();
 			break;
 		case 13:
 			let associarServico = new CadastroCliente(empresa.getClientes, empresa.getProdutos, empresa.getServicos);
-			associarServico.associarServicoACliente();
+			associarServico.ServAssociadoCli();
 			break;
         case 0:
             execucao = false

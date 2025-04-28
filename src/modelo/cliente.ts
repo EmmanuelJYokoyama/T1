@@ -8,7 +8,7 @@ export default class Cliente {
     public nome: string
     public nomeSocial: string
     private cpf: CPF
-    private rgs: Array<RG>
+    private rg: Array<RG>
 	private genero: string
     private dataCadastro: Date
     private telefones: Array<Telefone>
@@ -18,7 +18,7 @@ export default class Cliente {
         this.nome = nome
         this.nomeSocial = nomeSocial
         this.cpf = cpf
-        this.rgs = []
+        this.rg = []
 		this.genero = genero
         this.dataCadastro = new Date()
         this.telefones = []
@@ -28,8 +28,8 @@ export default class Cliente {
     public get getCpf(): CPF {
         return this.cpf
     }
-    public get getRgs(): Array<RG> {
-        return this.rgs
+    public get getRg(): Array<RG> {
+        return this.rg
     }
 	public get getGenero(): string {
 		return this.genero
@@ -46,11 +46,11 @@ export default class Cliente {
     public get getServicosConsumidos(): Array<Servico> {
         return this.servicosConsumidos
     }
-	public adicionarProduto(produto: Produto): void {
+	public addProduct(produto: Produto): void {
         this.produtosConsumidos.push(produto);
     }
 
-    public adicionarServico(servico: Servico): void {
+    public addService(servico: Servico): void {
         this.servicosConsumidos.push(servico);
     }
 }

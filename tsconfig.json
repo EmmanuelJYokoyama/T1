@@ -1,0 +1,19 @@
+{
+	"compilerOptions": {
+	  "target": "ES6",
+	  "module": "CommonJS",
+	  "strict": true,
+	  "esModuleInterop": true,
+	  "skipLibCheck": true,
+	  "forceConsistentCasingInFileNames": true,
+	  "outDir": "out",
+	  "moduleResolution": "node",
+	  "noImplicitAny": false,
+	  "resolveJsonModule": true,
+	  "allowSyntheticDefaultImports": true
+	},
+	"include": [
+	  "src/**/*"
+, "out/app/main.js", "out/io/entrada.js", "out/negocio/cliente.js", "out/modelo/cpf.js", "out/modelo/empresa.js", "out/modelo/produto.js", "out/modelo/rg.js", "out/modelo/servico.js", "out/modelo/telefone.js"	]
+  }
+  
