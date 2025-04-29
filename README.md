@@ -1,13 +1,13 @@
 
-## 1.Instale as dependências
+## 1° Passo 
 ```
 npm install
 ```
-## 2.Entre na pasta out
+## 2° Passo
 ```
-cd out
+cd src/app
 ```
-## 3. Rode o arquivo ```main.js```
+## 3 Passo
 ```
 node main.js
 ```
